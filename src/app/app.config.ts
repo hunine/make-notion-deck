@@ -1,7 +1,7 @@
 import { ApplicationConfig } from '@angular/core';
 import { provideRouter } from '@angular/router';
-import { appRoutes } from './app.routes';
+import { webShellRoutes } from '@make-notion-deck/web-shell';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(appRoutes)],
+  providers: [provideRouter(webShellRoutes)],
 };
