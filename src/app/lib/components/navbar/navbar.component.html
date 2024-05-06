@@ -1,10 +1,24 @@
-<div class="logo"></div>
-<ul
-    nz-menu
-    nzTheme="dark"
-    nzMode="horizontal"
->
-    <li nz-menu-item>nav 1</li>
-    <li nz-menu-item>nav 2</li>
-    <li nz-menu-item>nav 3</li>
-</ul>
+<div class="w-full h-16 px-5 flex items-center bg-slate-400">
+    <button
+        nz-button
+        nzType="primary"
+        (click)="toggleCollapsed()"
+        class="block lg:hidden"
+    >
+        <span
+            nz-icon
+            [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+        ></span>
+    </button>
+    <div class="hidden lg:block logo w-32 h-8 mx-4 mr-6 ml-0 float-left"></div>
+    <ul
+        nz-menu
+        nzTheme="dark"
+        nzMode="horizontal"
+        class="hidden lg:block leading-[64px]"
+    >
+        <li nz-menu-item>nav 1</li>
+        <li nz-menu-item>nav 2</li>
+        <li nz-menu-item>nav 3</li>
+    </ul>
+</div>

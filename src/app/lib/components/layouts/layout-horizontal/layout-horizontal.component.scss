@@ -8,6 +8,18 @@ nz-content {
   height: 100%;
 }
 
+.logo {
+  width: 120px;
+  height: 31px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 16px 24px 16px 0;
+  float: left;
+}
+
+[nz-menu] {
+  line-height: 64px;
+}
+
 nz-footer {
   text-align: center;
 }
@@ -16,5 +28,4 @@ nz-footer {
   background: #fff;
   padding: 24px;
   min-height: 280px;
-  max-height: 100%;
 }

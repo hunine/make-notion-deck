@@ -8,9 +8,20 @@ import en from '@angular/common/locales/en';
 import { FormsModule } from '@angular/forms';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideHttpClient } from '@angular/common/http';
+import { NzIconModule } from 'ng-zorro-antd/icon';
+import { IconDefinition } from '@ant-design/icons-angular';
+import { MenuFoldOutline, MenuUnfoldOutline } from '@ant-design/icons-angular/icons';
 
 registerLocaleData(en);
+const icons: IconDefinition[] = [MenuFoldOutline, MenuUnfoldOutline];
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes), provideNzI18n(en_US), importProvidersFrom(FormsModule), provideAnimationsAsync(), provideHttpClient()],
+    providers: [
+        provideRouter(routes),
+        provideNzI18n(en_US),
+        importProvidersFrom(FormsModule),
+        importProvidersFrom(NzIconModule.forRoot(icons)),
+        provideAnimationsAsync(),
+        provideHttpClient(),
+    ],
 };

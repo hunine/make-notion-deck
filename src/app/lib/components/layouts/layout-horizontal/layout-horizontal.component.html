@@ -1,11 +1,7 @@
-<nz-layout>
-    <nz-header>
-        <app-navbar></app-navbar>
-    </nz-header>
-    <nz-content>
+<div class="w-full h-full flex flex-col">
+    <app-navbar></app-navbar>
+    <div class="p-8 mx-auto flex-1 lg:max-w-7xl">
         <ng-content></ng-content>
-    </nz-content>
-    <nz-footer>
-        <app-footer></app-footer>
-    </nz-footer>
-</nz-layout>
+    </div>
+    <!-- <app-footer></app-footer> -->
+</div>

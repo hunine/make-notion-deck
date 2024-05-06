@@ -1,0 +1,12 @@
+<span class="block font-bold text-lg mb-8">List topics</span>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <ng-container *ngIf="topics$ | async as topics">
+        @for (topic of topics; track $index) {
+            <app-topic-card
+                [title]="topic.title"
+                [description]="topic.description"
+                class="h-40"
+            ></app-topic-card>
+        }
+    </ng-container>
+</div>
