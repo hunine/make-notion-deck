@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { Topic } from '@lib/interfaces';
 
 @Component({
     selector: 'app-topic-card',
@@ -6,8 +7,29 @@ import { Component, Input } from '@angular/core';
     imports: [],
     templateUrl: './topic-card.component.html',
     styleUrl: './topic-card.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TopicCardComponent {
-    @Input() title: string = '';
-    @Input() description: string = '';
+    @Input() topic: Topic = {
+        id: '',
+        title: '',
+        description: '',
+    };
+    @Output() clickOnCard = new EventEmitter<string>();
+
+    get id(): string {
+        return this.topic.id;
+    }
+
+    get title(): string {
+        return this.topic.title;
+    }
+
+    get description(): string {
+        return this.topic.description;
+    }
+
+    handleClick(id: string): void {
+        this.clickOnCard.emit(id);
+    }
 }

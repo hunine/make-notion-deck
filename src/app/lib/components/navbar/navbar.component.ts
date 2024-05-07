@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { NzButtonModule } from 'ng-zorro-antd/button';
@@ -12,6 +12,7 @@ const modules = [NzMenuModule, NzButtonModule, NzIconModule];
     imports: [...modules],
     templateUrl: './navbar.component.html',
     styleUrl: './navbar.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavbarComponent {
     isCollapsed = false;
