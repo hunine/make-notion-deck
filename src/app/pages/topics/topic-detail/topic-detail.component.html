@@ -1,2 +1,17 @@
-<!-- <span>{{ title }}</span>
-<button>Flashcards</button> -->
+<form
+    [formGroup]="topicForm"
+    class="flex flex-col gap-5"
+>
+    <ng-container formArrayName="cards">
+        @for (item of cards.controls; track $index) {
+            <app-term-card-form [formControlName]="$index"></app-term-card-form>
+        }
+    </ng-container>
+
+    <button
+        class="w-full h-28 bg-white rounded-lg font-bold text-lg"
+        (click)="addCard()"
+    >
+        {{ 'Add card' | uppercase }}
+    </button>
+</form>

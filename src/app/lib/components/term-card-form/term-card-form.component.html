@@ -1,0 +1,38 @@
+<div class="bg-white rounded-lg flex flex-col">
+    <div class="flex items-center justify-between px-6 pt-6">
+        <span class="font-semibold">{{ formControlName + 1 }}</span>
+    </div>
+    <nz-divider></nz-divider>
+    <form
+        nz-form
+        [formGroup]="termFormGroup"
+        class="px-6 pt-4 pb-6 rounded-lg flex flex-col"
+    >
+        <div class="flex items-center gap-8">
+            <nz-form-item class="flex-1">
+                <nz-form-control nzErrorTip="Please input your term!">
+                    <nz-input-group>
+                        <input
+                            type="text"
+                            nz-input
+                            formControlName="term"
+                            placeholder="Term"
+                        />
+                    </nz-input-group>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item class="flex-1">
+                <nz-form-control nzErrorTip="Please input your definition!">
+                    <nz-input-group>
+                        <input
+                            type="text"
+                            nz-input
+                            formControlName="definition"
+                            placeholder="Definition"
+                        />
+                    </nz-input-group>
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+    </form>
+</div>
