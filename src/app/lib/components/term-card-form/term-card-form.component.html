@@ -1,6 +1,18 @@
 <div class="bg-white rounded-lg flex flex-col">
     <div class="flex items-center justify-between px-6 pt-6">
-        <span class="font-semibold">{{ formControlName + 1 }}</span>
+        <span class="text-base font-semibold">{{ formControlName + 1 }}</span>
+        <div class="text-base flex gap-4">
+            <span
+                nz-icon
+                nzType="drag"
+                nzTheme="outline"
+            ></span>
+            <span
+                nz-icon
+                nzType="delete"
+                nzTheme="outline"
+            ></span>
+        </div>
     </div>
     <nz-divider></nz-divider>
     <form
@@ -13,6 +25,7 @@
                 <nz-form-control nzErrorTip="Please input your term!">
                     <nz-input-group>
                         <input
+                            class="text-base border-0 border-b-2"
                             type="text"
                             nz-input
                             formControlName="term"
@@ -25,6 +38,7 @@
                 <nz-form-control nzErrorTip="Please input your definition!">
                     <nz-input-group>
                         <input
+                            class="text-base border-0 border-b-2"
                             type="text"
                             nz-input
                             formControlName="definition"

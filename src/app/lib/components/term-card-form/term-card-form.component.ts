@@ -5,9 +5,10 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
+import { NzIconModule } from 'ng-zorro-antd/icon';
 import { Observable } from 'rxjs';
 
-const modules = [ReactiveFormsModule, NzFormModule, NzInputModule, NzButtonModule, NzDividerModule];
+const modules = [ReactiveFormsModule, NzFormModule, NzInputModule, NzButtonModule, NzDividerModule, NzIconModule];
 
 @Component({
     selector: 'app-term-card-form',

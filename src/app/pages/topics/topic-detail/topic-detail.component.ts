@@ -36,10 +36,8 @@ export class TopicDetailComponent {
     topicForm: FormGroup<{
         cards: FormArray;
     }> = this._formBuilder.group({
-        cards: this._formBuilder.array([]),
+        cards: this._formBuilder.array([this.createCardForm(), this.createCardForm()]),
     });
-
-    // topicForm!: FormGroup;
 
     get cards(): FormArray {
         return this.topicForm.get('cards') as FormArray;
