@@ -4,7 +4,11 @@
 >
     <ng-container formArrayName="cards">
         @for (item of cards.controls; track $index) {
-            <app-term-card-form [formControlName]="$index"></app-term-card-form>
+            <app-term-card-form
+                [groupId]="$index"
+                [termCardForm]="item"
+                (clickToDelete)="handleClickToDelete($index)"
+            ></app-term-card-form>
         }
     </ng-container>
 

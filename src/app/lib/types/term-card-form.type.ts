@@ -1,4 +1,6 @@
+import { FormControl } from '@angular/forms';
+
 export interface TermCardFormType {
-    term: string;
-    definition: string;
+    term: FormControl<string>;
+    definition: FormControl<string>;
 }

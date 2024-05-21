@@ -1,23 +1,32 @@
-<div class="bg-white rounded-lg flex flex-col">
+<div
+    class="bg-white rounded-lg flex flex-col"
+    [formGroup]="termCardForm"
+>
     <div class="flex items-center justify-between px-6 pt-6">
-        <span class="text-base font-semibold">{{ formControlName + 1 }}</span>
+        <span class="text-base font-semibold">{{ groupId + 1 }}</span>
         <div class="text-base flex gap-4">
             <span
+                class="cursor-pointer"
                 nz-icon
                 nzType="drag"
                 nzTheme="outline"
             ></span>
-            <span
-                nz-icon
-                nzType="delete"
-                nzTheme="outline"
-            ></span>
+            <button
+                class="p-2 leading-none"
+                (click)="handleClickToDelete()"
+            >
+                <span
+                    class="cursor-pointer"
+                    nz-icon
+                    nzType="delete"
+                    nzTheme="outline"
+                ></span>
+            </button>
         </div>
     </div>
     <nz-divider></nz-divider>
     <form
         nz-form
-        [formGroup]="termFormGroup"
         class="px-6 pt-4 pb-6 rounded-lg flex flex-col"
     >
         <div class="flex items-center gap-8">

@@ -1,10 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { FormArray, FormControl, FormGroup, NonNullableFormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { FormArray, FormGroup, NonNullableFormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { TermCardFormComponent } from '@lib/components/term-card-form/term-card-form.component';
 import { TopicService } from '@lib/services';
-import { TermCardFormType } from '@lib/types/term-card-form.type';
 import { Observable, map, switchMap } from 'rxjs';
 
 const modules = [CommonModule, ReactiveFormsModule];
@@ -34,17 +33,17 @@ export class TopicDetailComponent {
     );
 
     topicForm: FormGroup<{
-        cards: FormArray;
+        cards: FormArray<FormGroup>;
     }> = this._formBuilder.group({
         cards: this._formBuilder.array([this.createCardForm(), this.createCardForm()]),
     });
 
-    get cards(): FormArray {
+    get cards(): FormArray<FormGroup> {
         return this.topicForm.get('cards') as FormArray;
     }
 
-    createCardForm(): FormControl<TermCardFormType> {
-        return this._formBuilder.control({
+    createCardForm(): FormGroup {
+        return this._formBuilder.group({
             term: '',
             definition: '',
         });
@@ -52,5 +51,9 @@ export class TopicDetailComponent {
 
     addCard(): void {
         this.cards.push(this.createCardForm());
+    }
+
+    handleClickToDelete(index: number): void {
+        this.cards.removeAt(index);
     }
 }

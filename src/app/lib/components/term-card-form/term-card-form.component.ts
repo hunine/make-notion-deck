@@ -1,4 +1,6 @@
-import { Component, Input, forwardRef, inject } from '@angular/core';
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { Component, EventEmitter, Input, Output, forwardRef, inject } from '@angular/core';
 import { FormGroup, NG_VALUE_ACCESSOR, NonNullableFormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { TermCardFormType } from '@lib/types/term-card-form.type';
 import { NzButtonModule } from 'ng-zorro-antd/button';
@@ -25,24 +27,26 @@ const modules = [ReactiveFormsModule, NzFormModule, NzInputModule, NzButtonModul
     ],
 })
 export class TermCardFormComponent {
-    @Input() formControlName: number = 0;
     private _formBuilder = inject(NonNullableFormBuilder);
 
-    termFormGroup: FormGroup = this._formBuilder.group({
-        term: [''],
-        definition: [''],
+    @Input() groupId: number = 0;
+    @Output() clickToDelete: EventEmitter<number> = new EventEmitter<number>();
+
+    @Input() termCardForm: FormGroup = this._formBuilder.group({
+        term: '',
+        definition: '',
     });
 
     private _onTouched: () => void = () => {};
 
     constructor() {}
 
-    writeValue(value: TermCardFormType): void {
-        this.termFormGroup.setValue(value, { emitEvent: true });
+    writeValue(value: any): void {
+        this.termCardForm.setValue(value, { emitEvent: true });
     }
 
     registerOnChange(fn: (value: Partial<TermCardFormType>) => void): void {
-        (this.termFormGroup.valueChanges as Observable<Partial<TermCardFormType>>).subscribe(
+        (this.termCardForm.valueChanges as Observable<Partial<TermCardFormType>>).subscribe(
             (value: Partial<TermCardFormType>) => {
                 fn(value);
             },
@@ -54,6 +58,10 @@ export class TermCardFormComponent {
     }
 
     setDisabledState(isDisabled: boolean): void {
-        isDisabled ? this.termFormGroup.disable() : this.termFormGroup.enable();
+        isDisabled ? this.termCardForm.disable() : this.termCardForm.enable();
+    }
+
+    handleClickToDelete(): void {
+        this.clickToDelete.emit(this.groupId);
     }
 }
