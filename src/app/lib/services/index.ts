@@ -1,1 +1,1 @@
-export * from './topics/topics.service';
+export * from './topic/topic.service';

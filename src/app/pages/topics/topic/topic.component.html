@@ -3,9 +3,9 @@
     <ng-container *ngIf="topics$ | async as topics">
         @for (topic of topics; track $index) {
             <app-topic-card
-                [title]="topic.title"
-                [description]="topic.description"
+                [topic]="topic"
                 class="h-40"
+                (clickOnCard)="handleClick($event)"
             ></app-topic-card>
         }
     </ng-container>
