@@ -10,10 +10,10 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { provideHttpClient } from '@angular/common/http';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { IconDefinition } from '@ant-design/icons-angular';
-import { MenuFoldOutline, MenuUnfoldOutline, DragOutline, DeleteOutline } from '@ant-design/icons-angular/icons';
+import { MenuFoldOutline, MenuUnfoldOutline, DeleteOutline } from '@ant-design/icons-angular/icons';
 
 registerLocaleData(en);
-const icons: IconDefinition[] = [MenuFoldOutline, MenuUnfoldOutline, DragOutline, DeleteOutline];
+const icons: IconDefinition[] = [MenuFoldOutline, MenuUnfoldOutline, DeleteOutline];
 
 export const appConfig: ApplicationConfig = {
     providers: [

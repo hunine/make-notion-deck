@@ -5,8 +5,9 @@ import { ActivatedRoute } from '@angular/router';
 import { TermCardFormComponent } from '@lib/components/term-card-form/term-card-form.component';
 import { TopicService } from '@lib/services';
 import { Observable, map, switchMap } from 'rxjs';
+import { CdkDragDrop, DragDropModule } from '@angular/cdk/drag-drop';
 
-const modules = [CommonModule, ReactiveFormsModule];
+const modules = [CommonModule, ReactiveFormsModule, DragDropModule];
 const components = [TermCardFormComponent];
 
 @Component({
@@ -55,5 +56,20 @@ export class TopicDetailComponent {
 
     handleClickToDelete(index: number): void {
         this.cards.removeAt(index);
+    }
+
+    drop(event: CdkDragDrop<string[]>): void {
+        this.moveItemInArray(this.cards, event.previousIndex, event.currentIndex);
+    }
+
+    moveItemInArray(formArray: FormArray, fromIndex: number, toIndex: number): void {
+        const dir = toIndex > fromIndex ? 1 : -1;
+        const item = formArray.at(fromIndex);
+
+        for (let i = fromIndex; i * dir < toIndex * dir; i = i + dir) {
+            const current = formArray.at(i + dir);
+            formArray.setControl(i, current);
+        }
+        formArray.setControl(toIndex, item);
     }
 }

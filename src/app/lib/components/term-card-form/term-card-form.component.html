@@ -1,16 +1,10 @@
 <div
-    class="bg-white rounded-lg flex flex-col"
+    class="term-card-form-container bg-white rounded-lg flex flex-col h-40"
     [formGroup]="termCardForm"
 >
-    <div class="flex items-center justify-between px-6 pt-6">
+    <div class="flex items-center justify-between px-6 py-3">
         <span class="text-base font-semibold">{{ groupId + 1 }}</span>
         <div class="text-base flex gap-4">
-            <span
-                class="cursor-pointer"
-                nz-icon
-                nzType="drag"
-                nzTheme="outline"
-            ></span>
             <button
                 class="p-2 leading-none"
                 (click)="handleClickToDelete()"
@@ -24,13 +18,13 @@
             </button>
         </div>
     </div>
-    <nz-divider></nz-divider>
+    <nz-divider class="m-0"></nz-divider>
     <form
         nz-form
-        class="px-6 pt-4 pb-6 rounded-lg flex flex-col"
+        class="px-6 py-3 rounded-lg flex flex-col"
     >
         <div class="flex items-center gap-8">
-            <nz-form-item class="flex-1">
+            <nz-form-item class="flex-1 m-0">
                 <nz-form-control nzErrorTip="Please input your term!">
                     <nz-input-group class="flex flex-col gap-2 justify-center items-start">
                         <input
@@ -44,7 +38,7 @@
                     </nz-input-group>
                 </nz-form-control>
             </nz-form-item>
-            <nz-form-item class="flex-1">
+            <nz-form-item class="flex-1 m-0">
                 <nz-form-control nzErrorTip="Please input your definition!">
                     <nz-input-group class="flex flex-col gap-2 justify-center items-start">
                         <input
