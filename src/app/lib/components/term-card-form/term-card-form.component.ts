@@ -9,8 +9,17 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { Observable } from 'rxjs';
+import { CommonModule } from '@angular/common';
 
-const modules = [ReactiveFormsModule, NzFormModule, NzInputModule, NzButtonModule, NzDividerModule, NzIconModule];
+const modules = [
+    CommonModule,
+    ReactiveFormsModule,
+    NzFormModule,
+    NzInputModule,
+    NzButtonModule,
+    NzDividerModule,
+    NzIconModule,
+];
 
 @Component({
     selector: 'app-term-card-form',

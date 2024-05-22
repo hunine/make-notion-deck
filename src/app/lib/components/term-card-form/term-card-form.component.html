@@ -32,30 +32,45 @@
         <div class="flex items-center gap-8">
             <nz-form-item class="flex-1">
                 <nz-form-control nzErrorTip="Please input your term!">
-                    <nz-input-group>
+                    <nz-input-group class="flex flex-col gap-2 justify-center items-start">
                         <input
-                            class="text-base border-0 border-b-2"
+                            class="text-base border-0 border-b-2 hover:border-b-primary focus:border-b-primary px-0 hover:shadow-b-1 focus:shadow-b-1"
                             type="text"
                             nz-input
                             formControlName="term"
                             placeholder="Term"
                         />
+                        <ng-container *ngTemplateOutlet="inputLabel; context: { $implicit: 'term' }"></ng-container>
                     </nz-input-group>
                 </nz-form-control>
             </nz-form-item>
             <nz-form-item class="flex-1">
                 <nz-form-control nzErrorTip="Please input your definition!">
-                    <nz-input-group>
+                    <nz-input-group class="flex flex-col gap-2 justify-center items-start">
                         <input
-                            class="text-base border-0 border-b-2"
+                            class="text-base border-0 border-b-2 hover:border-b-primary focus:border-b-primary px-0 hover:shadow-b-1 focus:shadow-b-1"
                             type="text"
                             nz-input
                             formControlName="definition"
                             placeholder="Definition"
                         />
+                        <ng-container
+                            *ngTemplateOutlet="inputLabel; context: { $implicit: 'definition' }"
+                        ></ng-container>
                     </nz-input-group>
                 </nz-form-control>
             </nz-form-item>
         </div>
     </form>
 </div>
+
+<ng-template
+    #inputLabel
+    let-label
+>
+    <label
+        class="text-slate-500 font-bold text-xs"
+        [for]="label"
+        >{{ label | uppercase }}</label
+    >
+</ng-template>
