@@ -1,14 +1,23 @@
 <form
+    cdkDropList
     [formGroup]="topicForm"
-    class="flex flex-col gap-5"
+    class="flex flex-col gap-5 topic-detail-container"
+    (cdkDropListDropped)="drop($event)"
 >
     <ng-container formArrayName="cards">
         @for (item of cards.controls; track $index) {
             <app-term-card-form
+                class="term-card-form-container cursor-move"
                 [groupId]="$index"
                 [termCardForm]="item"
                 (clickToDelete)="handleClickToDelete($index)"
-            ></app-term-card-form>
+                cdkDrag
+            >
+                <div
+                    class="w-full h-40 bg-slate-300 rounded-lg"
+                    *cdkDragPlaceholder
+                ></div>
+            </app-term-card-form>
         }
     </ng-container>
 
